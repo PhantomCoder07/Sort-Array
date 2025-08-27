@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main()
+{
+    int i,j,n,a=0,temp;
+    printf ("Enter array limit: ");
+    scanf ("%d",&n);
+    int arr[n];
+    printf ("Enter the %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i]);
+    }
+    printf ("The numbers: ");
+    for (i=0; i<n; i++)
+    {
+        printf ("%d ",arr[i]);
+    }
+    for (i=0; i<n; i++)
+    {
+        if (arr[i]>=arr[i+1])
+            a++;
+        else
+            break;
+    }
+    if (a==n-1)
+        printf ("\nThe array is sorted in descending order.");
+    else
+    {
+        printf ("\nThe array is not sorted properly.");
+        for (i=0; i<n; i++)
+        {
+            for (j=i+1; j<n; j++)
+            {
+                if (arr[i]<arr[j])
+                {
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        printf ("\nThe stored array is: ");
+        for (i=0; i<n; i++)
+        {
+            printf ("%d ",arr[i]);
+        }
+    }
+    return 0;
+}
