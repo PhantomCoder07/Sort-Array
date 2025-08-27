@@ -1,4 +1,12 @@
 #include <stdio.h>
+void take_array (int a[], int n)
+{
+    printf("Enter array element: ");
+    for (int i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
 void swap (int *a, int *b)
 {
     int temp = *a;
@@ -39,8 +47,11 @@ void display (int n, int arr[])
 }
 int main()
 {
-    int arr[]={2,3,4,5,6,7,8,5,2,1,0};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int n;
+    printf ("Enter the limit: ");
+    scanf ("%d",&n);
+    int arr[n];
+    take_array(arr,n);
     printf ("The given array:\n");
     display (n,arr);
     quick_sort (0,n-1,arr);
