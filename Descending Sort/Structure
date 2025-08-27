@@ -1,0 +1,35 @@
+#include <stdio.h>
+struct descending
+{
+    int a;
+};
+int main()
+{
+    int i,j,n,t;
+    printf ("Enter the size: ");
+    scanf ("%d",&n);
+    struct descending arr[n];
+    printf ("Enter %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    for (i=0; i<n; i++)
+    {
+        for (j=i+1; j<n; j++)
+        {
+            if (arr[i].a<arr[j].a)
+            {
+                t=arr[i].a;
+                arr[i].a=arr[j].a;
+                arr[j].a=t;
+            }
+        }
+    }
+    printf ("The numbers in descending order: ");
+    for (i=0; i<n; i++)
+    {
+        printf ("%d ",arr[i].a);
+    }
+    return 0;
+}
