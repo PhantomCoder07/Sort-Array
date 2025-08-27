@@ -39,7 +39,7 @@ int main()
                 }
             }
         }
-        printf ("\nThe stored array is: ");
+        printf ("\nThe sorted array is: ");
         for (i=0; i<n; i++)
         {
             printf ("%d ",arr[i]);
