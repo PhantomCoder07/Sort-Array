@@ -1,0 +1,52 @@
+#include <stdio.h>
+int main()
+{
+    FILE *file1,*file2;
+    file1 = fopen ("Array num.txt","w");
+    file2 = fopen ("Array num.txt","r");
+    int i,j,n,t;
+    char ch;
+    if (file1==NULL)
+        printf ("The file does not exist");
+    else
+    {
+        printf ("Enter the size: ");
+        scanf ("%d",&n);
+        int arr[n];
+        printf ("Enter %d numbers: ",n);
+        for (i=0; i<n; i++)
+        {
+            scanf ("%d",&arr[i]);
+        }
+        for (i=0; i<n; i++)
+        {
+            for (j=i+1; j<n; j++)
+            {
+                if (arr[i]<arr[j])
+                {
+                    t=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=t;
+                }
+            }
+        }
+        printf ("The numbers in descending order: ");
+        for (i=0; i<n; i++)
+        {
+            printf ("%d ",arr[i]);
+        }
+        fclose (file1);
+    }
+    if (file2==NULL)
+        printf ("The file does not exist");
+    else
+    {
+        while (!feof(file2))
+        {
+            ch = fgetc (file2);
+            printf ("%c",ch);
+        }
+        fclose (file2);
+    }
+    return 0;
+}
